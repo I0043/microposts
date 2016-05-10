@@ -1,0 +1,6 @@
+<% users.each do |user| %>
+  <div class="clearfix user-wrap">
+    <%= gravatar_for user,size:50 %>
+    <a href="<%=user_path(user)%>"><%= user.name %></a>
+  </div>
+<% end %>

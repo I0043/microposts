@@ -19,7 +19,17 @@ class MicropostsController < ApplicationController
     flash[:success] = "Micropost deleted"
     redirect_to request.referrer || root_url
   end
-
+  
+  def like
+    @micropost = Micropost.find(params[:id])
+    # Like.create(micropost_id: @micropost_id, user_id: current_user.id)
+    # current_user.likes.create(micropost_id: @micropost.id)
+    current_user.like(@micropost)
+    redirect_to root_url
+  end
+  
+  def unlike
+  end
   
   private
   def micropost_params

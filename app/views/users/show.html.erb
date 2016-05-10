@@ -7,6 +7,10 @@
       </h1>
     </section>
   </aside>
+<ul>
+<li><%= link_to "followings",followings_user_path(@user) %></li>
+<li><%= link_to "followers", followers_user_path(@user) %></li>
+</ul>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
